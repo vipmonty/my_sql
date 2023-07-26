@@ -1,0 +1,78 @@
+CREATING DATABASE:
+CREATE DATABASE <database_name>(
+id int auto_increment,
+name varchar(24),
+primary key (id)
+);
+
+
+CREATING TABLE:
+CREATE TABLE <database_name>(
+id int auto_increment,
+name varchar(24),
+primary key (id)
+);
+
+
+
+
+ADDING COLUMN:
+ALTER TABLE <table_name>
+ADD COLUMN <column_name> int not null;
+
+
+
+RENAMING:
+ALTER TABLE <table_name>
+RENAME COLUMN <old_name> TO <new_name>;
+
+RENAMING TABLE <old_name> TO <new_name>;
+
+
+
+
+
+CHANGING CONSTRAINT IN COLUMN:
+ALTER TABLE <table_name>
+MODIFY COLUMN <column name> varchar(24);
+
+
+
+
+REPOSITIONING COLUMN:
+ALTER TABLE <table_name>
+MODIFY <column_name> varchar(24)
+AFTER <name of column you want to place column>;
+"or FIRST if you want it first"
+
+
+UPDATE COLUMN WHERE CONSTRAINTS
+UPDATE customer1 
+SET phone_no='PHONE NO' 
+WHERE cust_city='Torento';
+
+
+DROP COLUMN:
+ALTER TABLE <table_name>
+DROP <column_name>;
+
+
+UPDATE EXISTING ROW WITH WHERE CLAUSE
+UPDATE `users`
+SET `username` = 'Jack', `password` = '123'
+WHERE `id` = 1
+
+
+INSERTING ROW INTO TABLE:
+INSERT INTO <table_name>
+VALUES ("viphakone","monty",45.00,"1987-04-07");
+"Need correct data type for constraints"
+"DATE constraint formate = YYYY-MM-DD"
+
+DELECT A ROW FROM TABLE:
+DELETE FROM `table_name` [WHERE condition];
+
+QUARYING TABLE WHERE LIKE:
+SELECT password, site FROM viphakone WHERE site LIKE '%america%'
+  
+
