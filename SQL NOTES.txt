@@ -36,6 +36,10 @@ CHANGING CONSTRAINT IN COLUMN:
 ALTER TABLE <table_name>
 MODIFY COLUMN <column name> varchar(24);
 
+DEFAULT CONSTRAINT FOR A COLUMN:
+ALTER TABLE <table_name>
+MODIFY COLUMN varchar(24) DEFAULT '<what ever string>'
+
 
 
 
@@ -77,3 +81,27 @@ SELECT password, site FROM viphakone WHERE site LIKE '%america%'
   
 GET VALUES/DESCRIPTION FROM A TABLE WITH OUT LOOKING AT DATABASE
 DESCRIBE <TABLE NAME>;
+
+TO GET LIST OF DATABASES:
+show databases;
+
+QUARYING A COLUMN WHERE IN LIST OF VALUES:
+SELECT * FROM <table name>
+WHERE <column> IN ('','','');
+
+ORDER BY MULTIPLE COLUMNS:
+select * FROM employee
+order BY sex, first_name, last_name
+
+USING GROUP BY:
+SELECT SUM(total_sales), client_id from works_with
+GROUP BY client_id
+'GROUP BY column outputs distinct results and 
+SUM(total_sales) sums total sales of each GROUP BY
+column'
+
+USING GROUP BY WITH WHERE CLAUSE AND LIKE KEYWORD:
+SELECT count(client_name), client_name as 'Count of LLC'
+FROM client
+WHERE client_name LIKE '%llc%'
+GROUP BY client_name
