@@ -78,6 +78,9 @@ DELETE FROM `table_name` [WHERE condition];
 
 QUARYING TABLE WHERE LIKE:
 SELECT password, site FROM viphakone WHERE site LIKE '%america%'
+'% = any number of characters, _ = on charater'
+'example of _ is:'
+SELECT password, site FROM viphakone WHERE site LIKE '%__eri%'
   
 GET VALUES/DESCRIPTION FROM A TABLE WITH OUT LOOKING AT DATABASE
 DESCRIBE <TABLE NAME>;
@@ -105,3 +108,8 @@ SELECT count(client_name), client_name as 'Count of LLC'
 FROM client
 WHERE client_name LIKE '%llc%'
 GROUP BY client_name
+
+USING UNION to combine two SELECT statements which consolidate into one column:
+SELECT client_name from client
+UNION
+SELECT supplier_name from branch_supplier
