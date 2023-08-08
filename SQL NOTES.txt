@@ -162,3 +162,7 @@ SELECT DISTINCT emp_id
 FROM works_with
 WHERE total_sales > 30000
 
+USING BETWEEN OPERATOR:
+SELECT * FROM customers
+WHERE points BETWEEN 1000 and 3000
+
