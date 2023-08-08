@@ -96,6 +96,13 @@ SELECT password, site FROM viphakone WHERE site LIKE '%america%'
 '% = any number of characters, _ = on charater'
 'example of _ is:'
 SELECT password, site FROM viphakone WHERE site LIKE '%__eri%'
+
+USING LIKE WITH OR and AND OPERATOR WITH USE OF PARENTHESES:
+SELECT * FROM customers
+where (address like '%trail%' or address like '%avenue%')
+AND phone not like '%9%'
+'Get customers where address contain trail or avenue,
+ but does not have 9 in the phone number'
   
 GET VALUES/DESCRIPTION FROM A TABLE WITH OUT LOOKING AT DATABASE
 DESCRIBE <TABLE NAME>;
