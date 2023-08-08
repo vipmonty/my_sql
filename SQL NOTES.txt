@@ -13,8 +13,23 @@ name varchar(24),
 primary key (id)
 );
 
+DISPLAY ALL INFO FROM CREATED TABLE SUCH AS FOREIGN KEY NAMES:
+SHOW CREATE TABLE monty_family;
 
+DROP FOREIGN KEY CONSTRAINT AFTER GETTING FOREIGN 
+HIDDEN NAME FROM ABOVE COMMAND:
+ALTER TABLE monty_family
+DROP FOREIGN KEY `monty_family_ibfk_1`
+'and then you could drop the column'
+ALTER TABLE monty_family
+DROP COLUMN cred_id
 
+ALTER TABLE WITH NEW FOREIGN KEY:
+ALTER TABLE credentials
+ADD COLUMN key_to_monty_family int;
+
+ALTER TABLE credentials
+add foreign key (key_to_monty_family) references monty_family(prim_id);
 
 ADDING COLUMN:
 ALTER TABLE <table_name>
@@ -76,7 +91,7 @@ VALUES ("viphakone","monty",45.00,"1987-04-07");
 DELECT A ROW FROM TABLE:
 DELETE FROM `table_name` [WHERE condition];
 
-QUARYING TABLE WHERE LIKE:
+QUARYING TABLE WHERE LIKE WILDCARDS:
 SELECT password, site FROM viphakone WHERE site LIKE '%america%'
 '% = any number of characters, _ = on charater'
 'example of _ is:'
@@ -84,6 +99,12 @@ SELECT password, site FROM viphakone WHERE site LIKE '%__eri%'
   
 GET VALUES/DESCRIPTION FROM A TABLE WITH OUT LOOKING AT DATABASE
 DESCRIBE <TABLE NAME>;
+
+SELECT STATMEMENT WITH MATH INCLUDED IS POSSIBLE:
+SELECT 
+    first_name, 
+    points / 50 
+FROM customers
 
 TO GET LIST OF DATABASES:
 show databases;
@@ -113,3 +134,31 @@ USING UNION to combine two SELECT statements which consolidate into one column:
 SELECT client_name from client
 UNION
 SELECT supplier_name from branch_supplier
+
+USING JOIN TO QUARY FROM TWO TABLE ACCORDING PRIMARY AND FOREIGN KEYS:
+SELECT employee.emp_id, employee.first_name, 
+branch.branch_name,
+branch.mgr_id
+FROM employee
+JOIN branch
+WHERE employee.emp_id = branch.mgr_id;
+
+USING NESTED QUARYS:
+SELECT client.client_id , client.client_name
+FROM client
+WHERE client.client_id IN (
+    select client_id 
+    from works_with
+    where emp_id = (
+        SELECT emp_id 
+        from employee
+        WHERE first_name = 'michael'
+    )
+)
+'us IN b/c inner statement results in a list'
+
+NO DUPLICATES IN RESULT USE DISTINCT IN SELECT STATEMENT:
+SELECT DISTINCT emp_id
+FROM works_with
+WHERE total_sales > 30000
+
