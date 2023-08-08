@@ -103,6 +103,16 @@ where (address like '%trail%' or address like '%avenue%')
 AND phone not like '%9%'
 'Get customers where address contain trail or avenue,
  but does not have 9 in the phone number'
+
+ USING REGEXP INSTEAD OF LIKE:
+ SELECT * FROM customers
+ WHERE last_name REGEXP '^field|mac|rose$'
+ 'This quary retrieves customers where last_name starts with
+ field, or has mac, or end with rose'
+SELECT * FROM customers
+WHERE last_name REGEXP 'e[fmq]'
+'This quary retrives customers where 
+last name has e followed by f, m or q' using []' 
   
 GET VALUES/DESCRIPTION FROM A TABLE WITH OUT LOOKING AT DATABASE
 DESCRIBE <TABLE NAME>;
