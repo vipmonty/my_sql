@@ -203,6 +203,19 @@ LEFT JOIN order_statuses os
 ON os.order_status_id = o.status
 ORDER BY shipper, order_id
 
+USING "USING" WITH JOIN STATEMENT:
+SELECT
+    c.name,
+    p.date,
+    p.amount,
+    pm.name
+FROM clients c
+JOIN payments p
+USING(client_id)
+JOIN payment_methods pm
+ON pm.payment_method_id = p.payment_method
+'USING Operator only works if keys 
+from tables are the same'
 USING NESTED QUARYS:
 SELECT client.client_id , client.client_name
 FROM client
