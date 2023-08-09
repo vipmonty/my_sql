@@ -216,6 +216,47 @@ JOIN payment_methods pm
 ON pm.payment_method_id = p.payment_method
 'USING Operator only works if keys 
 from tables are the same'
+
+USING 'CROSS JOIN' TO OUT EVERYTHING IN 
+BOTH TABLES:
+SELECT
+    *
+FROM shippers s
+CROSS JOIN products p
+
+
+USING UNION TO JOIN TEMPORARY TABLE 
+BASE ON A MATH CLAUSE:
+SELECT
+    c.customer_id,
+    c.first_name,
+    c.points,
+    'Bronze' AS type
+FROM customers c
+WHERE c.points < 2000
+UNION
+SELECT
+    c.customer_id,
+    c.first_name,
+    c.points,
+    'Silver' AS type
+FROM customers c
+WHERE c.points BETWEEN 2000 AND 3000
+UNION
+SELECT
+    c.customer_id,
+    c.first_name,
+    c.points,
+    'Gold' AS type
+FROM customers c
+WHERE c.points > 3000
+ORDER BY first_name
+'This code above uses UNION to combine
+temporary tables we make up base on WHERE
+CLAUSE and creating temp colmn using 
+'Gold/Bronze/Silver' AS type 
+in SELECT statement'
+
 USING NESTED QUARYS:
 SELECT client.client_id , client.client_name
 FROM client
