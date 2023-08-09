@@ -171,6 +171,21 @@ FROM employees e
 JOIN employees m
     ON e.reports_to = m.employee_id
 
+MULTIPLE JOINS FROM 3 TABLES:
+SELECT 
+    c.first_name,
+    c.last_name, 
+    c.customer_id,
+    o.
+    o.order_date,
+    os.name
+FROM orders o
+JOIN customers c 
+ON c.customer_id = o.customer_id
+JOIN order_statuses os
+ON o.status = os.order_status_id
+ORDER BY o.order_date DESC
+
 USING NESTED QUARYS:
 SELECT client.client_id , client.client_name
 FROM client
