@@ -280,3 +280,18 @@ USING BETWEEN OPERATOR:
 SELECT * FROM customers
 WHERE points BETWEEN 1000 and 3000
 
+MAKING A COPY OF A TABLE INTO NEW TABLE:
+CREATE TABLE invoice_archieves
+AS (
+    SELECT
+        i.*,
+        c.name as client_name
+    FROM invoices i
+    JOIN clients c
+    USING (client_id)
+    WHERE payment_date IS NOT NULL
+)
+
+LAST_INSERT_ID() RETRIEVES THE LAST INSERT ID
+SELECT LAST_INSERT_ID()
+'This quary retrieves the last inserted id'
