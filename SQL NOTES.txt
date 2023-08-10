@@ -295,3 +295,13 @@ AS (
 LAST_INSERT_ID() RETRIEVES THE LAST INSERT ID
 SELECT LAST_INSERT_ID()
 'This quary retrieves the last inserted id'
+
+USING NESTED QUARY TO UPDATE TABLE:
+UPDATE orders
+SET comments = 'Gold'
+WHERE customer_id IN (SELECT customer_id
+FROM customers
+WHERE points > 3000
+)
+'This quary set Comments column to Gold if customers.points
+is greater than 3000'
