@@ -305,3 +305,11 @@ WHERE points > 3000
 )
 'This quary set Comments column to Gold if customers.points
 is greater than 3000'
+
+DELECT ROWS USING NESTED QUARY:
+DELECT FROM invoices
+WHERE client_id = (
+    SELECT *
+    FROM client
+    WHERE name = 'Myworks'
+)
