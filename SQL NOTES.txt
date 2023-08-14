@@ -313,3 +313,13 @@ WHERE client_id = (
     FROM client
     WHERE name = 'Myworks'
 )
+
+CASE STATEMENT:
+SELECT *, 
+(CASE
+    WHEN age > 30 THEN 'OLD'
+    WHEN age < 30 THEN 'Young'
+    ELSE 'Still in prime'
+END) AS 'my opinion'
+FROM employeedemographics
+'kinda like 'if' statement in Python'
