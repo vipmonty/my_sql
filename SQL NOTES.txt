@@ -358,3 +358,7 @@ CROSS JOIN temp_employee_salary)
 COUNT() HOW MANY OCCURANCE IN A CERTAIN COLUMN:
 SELECT age, count(age) from employeedemographics
 GROUP BY age
+
+USING CONCAT() TO COMBINE STRINGS OR COLUMN THAT ARE STRINGS
+INTO ONE COLUMN:
+SELECT FirstName, LastName, CONCAT(FirstName,' ',LastName) 'FullName' FROM both_tables
