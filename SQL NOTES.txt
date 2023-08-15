@@ -323,3 +323,11 @@ SELECT *,
 END) AS 'my opinion'
 FROM employeedemographics
 'kinda like 'if' statement in Python'
+
+PERFORMING MATH WITH CASE STATEMENT:
+SELECT *,
+(CASE
+    WHEN jobTitle regexp 'salesman' THEN salary + (salary*.05)
+    ELSE salary + (salary*.02)
+END) AS 'After Raise'
+FROM employeesalary
