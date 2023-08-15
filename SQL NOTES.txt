@@ -90,6 +90,9 @@ VALUES ("viphakone","monty",45.00,"1987-04-07");
 
 DELECT A ROW FROM TABLE:
 DELETE FROM `table_name` [WHERE condition];
+'Good rule of practice is to select what you want
+to delete first to see what it is you are going
+to delete b/c it is irreversable'
 
 QUARYING TABLE WHERE LIKE WILDCARDS:
 SELECT password, site FROM viphakone WHERE site LIKE '%america%'
@@ -336,3 +339,22 @@ USING 'HAVING' WITH 'GROUP BY' AGGERGATION ex. COUNT(),AVG():
 select Gender,count(Gender)as 'male count' FROM employeedemographics
 GROUP BY gender
 HAVING count(Gender) > 3
+
+
+CREATING A TEMPORARY TABLE WITH EXISTING TABLE:
+CREATE TEMPORARY TABLE temp_employee_salary AS SELECT * FROM employeesalary
+'The temp table will not show up in the schema or database.
+Only using a SELECT statement and only while session is active'
+
+DROPPING COLUMN IN TEMPORARY TABLE IN ORDER TO LEAVE OUT A COLUMN:
+ALTER TABLE temp_employee_salary
+DROP COLUMN employeeID 
+
+USING TEMPORARY TABLES TO CREATE NEW TABLE:
+CREATE TABLE both_tables AS 
+(SELECT * FROM employeedemographics
+CROSS JOIN temp_employee_salary)
+
+COUNT() HOW MANY OCCURANCE IN A CERTAIN COLUMN:
+SELECT age, count(age) from employeedemographics
+GROUP BY age
