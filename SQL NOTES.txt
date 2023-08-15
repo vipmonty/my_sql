@@ -331,3 +331,8 @@ SELECT *,
     ELSE salary + (salary*.02)
 END) AS 'After Raise'
 FROM employeesalary
+
+USING 'HAVING' WITH 'GROUP BY' AGGERGATION ex. COUNT(),AVG():
+select Gender,count(Gender)as 'male count' FROM employeedemographics
+GROUP BY gender
+HAVING count(Gender) > 3
