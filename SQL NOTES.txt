@@ -376,3 +376,13 @@ avg(age) OVER (PARTITION BY Gender) as 'AVG AGE BASED SEX'
 FROM both_tables
 WHERE JobTitle REGEXP 'sales'
 'This quary takes the avg() of age based on sex'
+
+USING CTE TABLE:
+WITH temp_table AS(
+SELECT FirstName, LastName, Age, Gender, JobTitle,
+avg(age) OVER (PARTITION BY Gender) as 'AVG AGE BASED SEX' 
+FROM both_tables
+WHERE JobTitle REGEXP 'sales')
+SELECT * FROM temp_table t
+'CTE or WITH statements are similar to TEMPORARY tables
+but you need the code within the quary to use it.'
