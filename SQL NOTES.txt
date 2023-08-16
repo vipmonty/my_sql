@@ -369,3 +369,10 @@ count(gender) OVER (PARTITION BY Gender) as 'sex count'
 FROM both_tables
 WHERE JobTitle REGEXP 'sales'
 'TAKES THE COUNT OF MALE AND FEMALE FROM ALL salesman'
+
+ANOTHER EXAMPLE OF PARTITION BY:
+SELECT FirstName, LastName, Age, Gender, JobTitle,
+avg(age) OVER (PARTITION BY Gender) as 'AVG AGE BASED SEX' 
+FROM both_tables
+WHERE JobTitle REGEXP 'sales'
+'This quary takes the avg() of age based on sex'
