@@ -363,4 +363,9 @@ USING CONCAT() TO COMBINE STRINGS OR COLUMN THAT ARE STRINGS
 INTO ONE COLUMN:
 SELECT FirstName, LastName, CONCAT(FirstName,' ',LastName) 'FullName' FROM both_tables
 
-LA
+USING PARTITION BY OPPOSED TO GROUP BY:
+SELECT FirstName, LastName, Age, Gender, JobTitle,
+count(gender) OVER (PARTITION BY Gender) as 'sex count' 
+FROM both_tables
+WHERE JobTitle REGEXP 'sales'
+'TAKES THE COUNT OF MALE AND FEMALE FROM ALL salesman'
