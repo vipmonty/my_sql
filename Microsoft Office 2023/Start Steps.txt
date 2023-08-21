@@ -1,0 +1,19 @@
+steps to download office Deployment tool:
+
+1) google search "office deployment tool"
+2) download office deployment tool
+3) create new folder and exact zip content you just downloaded
+into new folder
+
+and then follow next steps to finish.
+
+
+
+
+
+step 1) Hold Shift and right click 
+and choose run powershell from here
+
+step 2) Once in shell paste or type in this code:
+
+.\setup.exe /configure .\configuration-Office2021Enterprise.xml

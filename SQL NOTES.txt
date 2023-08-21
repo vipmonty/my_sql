@@ -355,6 +355,10 @@ CREATE TABLE both_tables AS
 (SELECT * FROM employeedemographics
 CROSS JOIN temp_employee_salary)
 
+DROPPING/DELETING TEMPORARY TABLE:
+DROP TEMPORARY TABLE table_name;
+
+
 COUNT() HOW MANY OCCURANCE IN A CERTAIN COLUMN:
 SELECT age, count(age) from employeedemographics
 GROUP BY age
@@ -386,3 +390,8 @@ WHERE JobTitle REGEXP 'sales')
 SELECT * FROM temp_table t
 'CTE or WITH statements are similar to TEMPORARY tables
 but you need the code within the quary to use it.'
+
+USING DROP TABLE IF EXIST FOR TEMPORARY TABLES:
+DROP TABLE IF EXIST <TABLENAME>
+'sometime we have to delete a temp table due
+to errors.'
